@@ -1,2 +1,0 @@
-#include "colourschemes/blossom"
-xrdb -merge "$DOTFILES_DIR/system/x11/colourschemes/solarized-light"

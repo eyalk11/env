@@ -1,5 +1,0 @@
-#!/bin/bash
-# Gives important variables, etc.
-. $HOME/.bashrc
-cd ~/cloudfiles
-myVim "$@"; exit

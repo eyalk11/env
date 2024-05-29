@@ -1,2 +1,0 @@
-#!/bin/sh
-myVim --cmd "let g:liteMode=1" "$@"

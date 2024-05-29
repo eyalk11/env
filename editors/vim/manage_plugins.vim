@@ -6,7 +6,7 @@
 " * Any other lazy.nvim spec config options that don't have a Plug alternative
 " (Note, for `keys`, modes are only supported via the special MakeLazyKeys
 " function.)
-command! -bang -nargs=+ Plugin call <sid>PluginAdapter(<args>)
+command! -bang -nargs=+ Plugit call <sid>PluginAdapter(<args>)
 
 function! GetPluginName(pluginUrl)
     " Get plugin name out of a plugin spec name/url. Fairly simplistic, so
@@ -172,7 +172,7 @@ function! s:installPluginManager()
     if has('nvim')
         let g:loaded_plug = 1
         lua << EOF
-        local lazypath = vim.g.pluginInstallPath .. "/lazy.nvim"
+        local lazypath = vim.fn.expand( vim.g.pluginInstallPath) .. "/lazy.nvim"
         if not vim.loop.fs_stat(lazypath) then
             -- bootstrap lazy.nvim
             -- stylua: ignore
@@ -184,8 +184,6 @@ EOF
 
     else
         if has('win32') || has ('win64')
-            let l:vimhome = $HOME."/vimfiles"
-        else
             let l:vimhome = $HOME."/.vim"
         endif
         let l:plugin_manager_dir = expand(l:vimhome . '/autoload')
